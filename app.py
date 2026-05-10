@@ -2,13 +2,14 @@
 # app.py  —  Suicidal Tendency Prediction GUI
 # Run:  streamlit run app.py
 # ─────────────────────────────────────────────────────────────────────────────
-import streamlit as st
-import pickle
-import re
-import numpy as np
-import matplotlib.pyplot as plt
 import nltk
+import os
 
+# Download NLTK data for Streamlit Cloud
+nltk_data_dir = os.path.expanduser("~/nltk_data")
+os.makedirs(nltk_data_dir, exist_ok=True)
+nltk.download("stopwords", download_dir=nltk_data_dir, quiet=True)
+nltk.download("punkt_tab", download_dir=nltk_data_dir, quiet=True)
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
