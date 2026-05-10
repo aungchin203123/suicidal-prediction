@@ -20,6 +20,9 @@ Special focus is placed on **Recall optimisation** — a missed at-risk case is 
 ## 🚀 Live Demo
 
 👉 **[https://aungchin203123-suicidalprediction.streamlit.app](https://aungchin203123-suicidalprediction.streamlit.app)**
+---
+## 🚀 Live Notebook
+
 
 ---
 
