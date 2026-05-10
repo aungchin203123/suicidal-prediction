@@ -2,14 +2,20 @@
 # app.py  —  Suicidal Tendency Prediction GUI
 # Run:  streamlit run app.py
 # ─────────────────────────────────────────────────────────────────────────────
-import nltk
 import os
+import re
+import pickle
+import numpy as np
+import matplotlib.pyplot as plt
+import streamlit as st
+import nltk
 
-# Download NLTK data for Streamlit Cloud
+# Download NLTK data (required for Streamlit Cloud)
 nltk_data_dir = os.path.expanduser("~/nltk_data")
 os.makedirs(nltk_data_dir, exist_ok=True)
 nltk.download("stopwords", download_dir=nltk_data_dir, quiet=True)
 nltk.download("punkt_tab", download_dir=nltk_data_dir, quiet=True)
+
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
@@ -19,6 +25,7 @@ st.set_page_config(
     page_icon="🧠",
     layout="wide"
 )
+
 STOP_WORDS = set(stopwords.words("english"))
 NEGATIONS = {
     "not", "no", "never", "neither", "nor", "nobody", "nothing", "nowhere",
@@ -65,7 +72,6 @@ def load_models():
     return tfidf, model, threshold
 
 
-# ── Mental Health Resources (ALWAYS shown) ────────────────────────────────────
 def show_resources():
     st.markdown("""
     <div style='background:#1a472a;padding:16px;border-radius:10px;border-left:6px solid #2ecc71;'>
@@ -83,7 +89,6 @@ def show_resources():
     """, unsafe_allow_html=True)
 
 
-# ── Disclaimer ────────────────────────────────────────────────────────────────
 def show_disclaimer():
     st.warning(
         "⚠️ **DISCLAIMER:** This is a **research prototype only** and is **NOT a clinical tool**. "
@@ -124,7 +129,6 @@ with col1:
                 st.markdown("---")
                 st.subheader("📊 Result")
 
-                # Gauge chart
                 fig, ax = plt.subplots(figsize=(6, 3))
                 color = "#e74c3c" if pred == 1 else "#2ecc71"
                 ax.barh(["Risk Score"], [prob], color=color, height=0.5)
@@ -146,11 +150,10 @@ with col1:
 
             except FileNotFoundError:
                 st.error(
-                    "Model files not found. Run the notebook first to generate and save:\n"
-                    "- `tfidf_vectorizer.pkl`\n"
-                    "- `lr_model.pkl`\n"
-                    "- `lr_threshold.pkl`\n\n"
-                    "Place them in the same folder as `app.py`."
+                    "Model files not found. Make sure these files are in the same folder as app.py:\n"
+                    "- tfidf_vectorizer.pkl\n"
+                    "- lr_model.pkl\n"
+                    "- lr_threshold.pkl"
                 )
 
 with col2:
