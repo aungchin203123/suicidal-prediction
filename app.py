@@ -204,8 +204,6 @@ with col1:
                     "- lr_threshold.pkl"
                 )
 
-with col2:
-    show_resources()
 
 # ── Developer & Model Info ────────────────────────────────────────────────────
 st.markdown("---")
