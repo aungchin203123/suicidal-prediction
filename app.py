@@ -97,6 +97,54 @@ def show_disclaimer():
     )
 
 
+def show_developer():
+    st.markdown("""
+    <div style='background:#1a1a2e;padding:20px;border-radius:12px;border-left:6px solid #3498db;margin-top:10px;'>
+    <h3 style='color:#3498db;margin:0 0 12px 0;'>👨‍💻 Developer</h3>
+    <table style='color:#ecf0f1;width:100%;border-collapse:collapse;'>
+        <tr><td style='padding:4px 0;width:40%;color:#95a5a6;'>Name</td>
+            <td style='padding:4px 0;'><b>Aung Chin Wain</b></td></tr>
+        <tr><td style='padding:4px 0;color:#95a5a6;'>Degree</td>
+            <td style='padding:4px 0;'>B.Sc. Mechanical Engineering</td></tr>
+        <tr><td style='padding:4px 0;color:#95a5a6;'>Institution</td>
+            <td style='padding:4px 0;'>Dhaka University of Engineering & Technology (DUET)</td></tr>
+        <tr><td style='padding:4px 0;color:#95a5a6;'>Expertise</td>
+            <td style='padding:4px 0;'>Mechanical CAD Design, Robotics, Applied Research</td></tr>
+        <tr><td style='padding:4px 0;color:#95a5a6;'>Certifications</td>
+            <td style='padding:4px 0;'>CSWP &amp; CSWA (SOLIDWORKS)</td></tr>
+        <tr><td style='padding:4px 0;color:#95a5a6;'>Publications</td>
+            <td style='padding:4px 0;'>3 International Conference Papers</td></tr>
+        <tr><td style='padding:4px 0;color:#95a5a6;'>Portfolio</td>
+            <td style='padding:4px 0;'><a href='https://aungchinwain.github.io/' style='color:#3498db;'>aungchinwain.github.io</a></td></tr>
+        <tr><td style='padding:4px 0;color:#95a5a6;'>GitHub</td>
+            <td style='padding:4px 0;'><a href='https://github.com/aungchin203123/suicidal-prediction' style='color:#3498db;'>suicidal-prediction repo</a></td></tr>
+    </table>
+    </div>
+    """, unsafe_allow_html=True)
+
+
+def show_model_info():
+    st.markdown("""
+    <div style='background:#2c1810;padding:16px;border-radius:10px;border-left:6px solid #e67e22;margin-top:10px;'>
+    <h3 style='color:#e67e22;margin:0 0 10px 0;'>🤖 Model Info</h3>
+    <table style='color:#ecf0f1;width:100%;border-collapse:collapse;'>
+        <tr><td style='padding:4px 0;width:40%;color:#95a5a6;'>Algorithm</td>
+            <td style='padding:4px 0;'>Logistic Regression + TF-IDF</td></tr>
+        <tr><td style='padding:4px 0;color:#95a5a6;'>Also Trained</td>
+            <td style='padding:4px 0;'>Bidirectional LSTM</td></tr>
+        <tr><td style='padding:4px 0;color:#95a5a6;'>Dataset</td>
+            <td style='padding:4px 0;'>Suicide Watch (Kaggle)</td></tr>
+        <tr><td style='padding:4px 0;color:#95a5a6;'>Features</td>
+            <td style='padding:4px 0;'>TF-IDF Unigrams + Bigrams (50k vocab)</td></tr>
+        <tr><td style='padding:4px 0;color:#95a5a6;'>Preprocessing</td>
+            <td style='padding:4px 0;'>Negation handling, stopword removal</td></tr>
+        <tr><td style='padding:4px 0;color:#95a5a6;'>Optimisation</td>
+            <td style='padding:4px 0;'>F2-score threshold tuning (recall-focused)</td></tr>
+    </table>
+    </div>
+    """, unsafe_allow_html=True)
+
+
 # ── Main App ──────────────────────────────────────────────────────────────────
 st.title("🧠 Mental Health Text Screener")
 st.markdown("*Suicidal Tendency Prediction from Social Media Text — Research Prototype*")
@@ -159,8 +207,18 @@ with col1:
 with col2:
     show_resources()
 
+# ── Developer & Model Info ────────────────────────────────────────────────────
+st.markdown("---")
+dev_col, model_col = st.columns(2)
+
+with dev_col:
+    show_developer()
+
+with model_col:
+    show_model_info()
+
 st.markdown("---")
 st.caption(
-    "EDGE Digital Skills Program | Applied Machine Learning | DUET, Gazipur | "
-    "Research prototype — NOT for clinical use."
+    "© 2026 Aung Chin Wain | EDGE Digital Skills Program | Applied Machine Learning | "
+    "DUET, Gazipur | Research prototype — NOT for clinical use."
 )
