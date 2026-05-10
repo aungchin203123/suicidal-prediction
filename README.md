@@ -95,16 +95,6 @@ streamlit run app.py
 - Cannot detect sarcasm or cultural nuances
 - Not validated for clinical use
 
----
-
-## 💚 Mental Health Resources
-
-These resources are always available:
-
-- 🇧🇩 **Kaan Pete Roi (Bangladesh):** +8801779-554391
-- 🌐 **Crisis Text Line:** Text HOME to 741741
-- 📞 **International:** [findahelpline.com](https://findahelpline.com)
-- 🏥 **IASP Crisis Centres:** [iasp.info](https://www.iasp.info/resources/Crisis_Centres/)
 
 ---
 
